@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-	console.log("Javascript funciona");
+	console.log("Juego iniciado");
 }, false);
 
 //DOM = DOCUMENT OBJECT MODEL
