@@ -1,5 +1,12 @@
+// ctrl + f5 - recargar limpiando la caché
+
 document.addEventListener('DOMContentLoaded', function() {
-	console.log("Juego iniciado");
+	inicio.iniciarJuego();
 }, false);
 
-//DOM = DOCUMENT OBJECT MODEL
+var inicio = {
+	iniciarJuego: function() {
+		console.log("Juego iniciado");
+		buclePrincipal.iterar();
+	}
+};
