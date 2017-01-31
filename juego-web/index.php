@@ -8,8 +8,9 @@
 		<meta name="author" conent="JavaDevOne">
 	</head>
 	<body>
-		<h1>Bienvenido al canal de JavaDevOne</h1>
-		<h3>Recordad que el canal tiene cuenta en Patreon</h3>
+		<div id="juego">			
+		</div>
+		<script src="js/rectangulo.js"></script>
 		<script src="js/buclePrincipal.js"></script>
 		<script src="js/dimensiones.js"></script>
 		<script src="js/inicio.js"></script>
