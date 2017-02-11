@@ -12,9 +12,8 @@ var buclePrincipal = {
 	fps: 0,
 	iterar: function(registroTemporal) {
 		buclePrincipal.idEjecucion = window.requestAnimationFrame(buclePrincipal.iterar);
-
 		buclePrincipal.actualizar(registroTemporal);
-		buclePrincipal.dibujar();
+		buclePrincipal.dibujar();	
 
 		if(registroTemporal - buclePrincipal.ultimoRegistro > 999) {
 			buclePrincipal.ultimoRegistro = registroTemporal;
@@ -27,6 +26,7 @@ var buclePrincipal = {
 
 	},
 	actualizar: function(registroTemporal) {
+		teclado.reiniciar();
 		buclePrincipal.aps++;
 	},
 	dibujar: function(registroTemporal) {
