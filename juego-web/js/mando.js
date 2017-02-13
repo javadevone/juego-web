@@ -37,12 +37,18 @@ var mando = {
 			return;
 		}
 
-		//continuará
+		if (mando.botonPulsado(mando.objeto.buttons[0])) {
+			console.log("Mando: A");
+		}
 	},
 	botonPulsado: function(boton) {
-
+		if (typeof(boton) == "object") {
+			return boton.pressed;
+		}
+		return boton == 1.0;
 	},
 	identificar: function() {
-
+		console.log("Mando conectado en el índice %d: %s. %d botones, %d ejes.",
+			mando.objeto.index, mando.objeto.id, mando.objeto.buttons.length, mando.objeto.axes.length);
 	}
-}
+};

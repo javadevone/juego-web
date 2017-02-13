@@ -9,6 +9,7 @@ var inicio = {
 		console.log("Juego iniciado");
 		teclado.iniciar();
 		dimensiones.iniciar();
+		mando.iniciar();
 		inicio.recargarTiles();
 		buclePrincipal.iterar();
 	},
