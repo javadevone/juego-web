@@ -1,6 +1,6 @@
 # juego-web
 
-Juego web desarrollado en el canal de YouTube: https://www.youtube.com/channel/UChbgp4v5VDtySNOOU0JinSA
+Juego web desarrollado en el canal de YouTube: https://www.youtube.com/c/javadevone
 
 Lista de reproducción con todos los vídeos hasta el momento: https://www.youtube.com/playlist?list=PLN9W6BC54TJLlH57qvG2aN9F99xaAk6Df
 
