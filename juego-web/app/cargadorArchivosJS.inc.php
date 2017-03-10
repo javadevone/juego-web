@@ -3,9 +3,10 @@
 $fecha = new DateTime();
 
 $fuentesJavascript = array(
+	"js/Punto.js",
 	"js/ajax.js",
 	"js/teclado.js",
-	"js/rectangulo.js",
+	"js/Rectangulo.js",
 	"js/mando.js",
 	"js/buclePrincipal.js",
 	"js/dimensiones.js",
