@@ -1,4 +1,4 @@
-function CapaMapaTiles(datosCapa, indiceZ, anchoDeLosTiles, altoDeLosTiles, paletaSprites) {
+function CapaMapaTiles(datosCapa, indiceZ, anchoDeLosTiles, altoDeLosTiles, paletasSprites) {
 	this.anchoEnTiles = parseInt(datosCapa.width);
 	this.altoEnTiles = parseInt(datosCapa.height);
 	this.x = parseInt(datosCapa.x);

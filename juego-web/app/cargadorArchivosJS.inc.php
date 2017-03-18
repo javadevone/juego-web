@@ -3,6 +3,7 @@
 $fecha = new DateTime();
 
 $fuentesJavascript = array(
+	"js/listadoEstados.js",
 	"js/Rectangulo.js",
 	"js/Punto.js",
 	"js/Sprite.js",

@@ -24,7 +24,7 @@ function PaletaSprites(datosSprites) {
 
 PaletaSprites.prototype.obtenerPosicionDesdeIdSprite = function(idSpriteSobreZero) {
 	var y = Math.floor(idSpriteSobreZero / this.anchoImagenMedidoEnSprites);
-	var x = idSprite % this.anchoImagenMedidoEnSprites;
+	var x = idSpriteSobreZero % this.anchoImagenMedidoEnSprites;
 
 	return new Punto(x * this.anchoSprites, y * this.altoSprites);
 }
