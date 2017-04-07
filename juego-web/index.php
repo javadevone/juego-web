@@ -8,7 +8,9 @@
 		<meta name="author" conent="JavaDevOne">
 	</head>
 	<body>
-		<div id="juego">			
+		<div id="juego">	
+			<div id="mapa">
+			</div>		
 		</div>
 		<?php
 			include_once 'app/cargadorArchivosJS.inc.php';

@@ -12,6 +12,8 @@ function Mapa(objetoJSON) {
 
 	this.capasTiles = [];
 	this.iniciarCapas(objetoJSON.layers);
+
+	this.iniciarRejilla();
 }
 
 Mapa.prototype.iniciarPaletasSprites = function(datosCapas) {
@@ -35,7 +37,7 @@ Mapa.prototype.iniciarCapas = function(datosCapas) {
 
 Mapa.prototype.iniciarRejilla = function() {
 	var anchoMapaEnPixeles = this.anchoMedidoEnTiles * this.anchoDeLosTiles;
-	var altoMapaEnPixeles = this.altoMedidoEnTiles * this.anchoDeLosTiles;
+	var altoMapaEnPixeles = this.altoMedidoEnTiles * this.altoDeLosTiles;
 
 	var html = "";
 

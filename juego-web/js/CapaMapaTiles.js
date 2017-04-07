@@ -20,7 +20,7 @@ function CapaMapaTiles(datosCapa, indiceZ, anchoDeLosTiles, altoDeLosTiles, pale
 	}
 }
 
-CapaMapatiles.prototype.encontrarSpriteEnPaletaPorId = function(idSpriteSobreZero, paletasSprites) {
+CapaMapaTiles.prototype.encontrarSpriteEnPaletaPorId = function(idSpriteSobreZero, paletasSprites) {
 	for (s = 0; s < paletasSprites.length; s++) {
 		if (idSpriteSobreZero >= paletasSprites[s].primerSpriteSobreUno - 1 &&
 			idSpriteSobreZero < paletasSprites[s].totalSprites + paletasSprites[s].primerSpriteSobreUno + 1) {

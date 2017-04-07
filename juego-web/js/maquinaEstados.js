@@ -1,7 +1,7 @@
 var maquinaEstados = {
 	estadoActual: null,
 	iniciar: function() {
-
+		maquinaEstados.cambiarEstado(listadoEstados.MAPAMUNDI);
 	},
 	cambiarEstado: function(nuevoEstado) {
 		switch(nuevoEstado) {
@@ -10,7 +10,7 @@ var maquinaEstados = {
 			case listadoEstados.MENU_INICIAL:
 				break;
 			case listadoEstados.MAPAMUNDI:
-				// cargar mapamundi
+				maquinaEstados.estadoActual = new EstadoMapamundi(listadoEstados.MAPAMUNDI);
 				break;
 			case listadoEstados.NIVEL:
 				break;
