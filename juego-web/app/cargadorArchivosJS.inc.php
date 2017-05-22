@@ -17,7 +17,6 @@ $fuentesJavascript = array(
 	"js/controlesTeclado.js",
 	"js/teclado.js",
 	"js/mando.js",
-	"js/controles.js",
 	"js/dimensiones.js",
 	"js/buclePrincipal.js",
 	"js/inicio.js"

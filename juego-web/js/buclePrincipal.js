@@ -27,10 +27,7 @@ var buclePrincipal = {
 	},
 	actualizar: function(registroTemporal) {
 		mando.actualizar();
-		controles.actualizar();
 		maquinaEstados.actualizar();
-		teclado.reiniciar();
-		controles.reiniciar();
 		buclePrincipal.aps++;
 	},
 	dibujar: function(registroTemporal) {
