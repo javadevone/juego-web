@@ -10,7 +10,9 @@
 	<body>
 		<div id="juego">	
 			<div id="mapa">
-			</div>		
+			</div>
+			<div id="jugador">
+			</div>	
 		</div>
 		<?php
 			include_once 'app/cargadorArchivosJS.inc.php';

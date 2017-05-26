@@ -18,7 +18,6 @@ var maquinaEstados = {
 	},
 	actualizar: function() {
 		maquinaEstados.estadoActual.actualizar();
-		console.log(teclado.teclas);
 	},
 	dibujar: function() {
 		maquinaEstados.estadoActual.dibujar();

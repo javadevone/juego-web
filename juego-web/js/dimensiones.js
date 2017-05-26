@@ -7,7 +7,6 @@ var dimensiones = {
 		window.addEventListener("resize", function(evento) {
 			dimensiones.ancho = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 			dimensiones.alto = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-			inicio.recargarTiles();
 		});
 	},
 	obtenerTilesHorizontales: function() {
