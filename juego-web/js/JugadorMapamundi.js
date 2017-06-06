@@ -2,7 +2,7 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 	this.ancho = 48;
 	this.alto = 48;
 
-	this.velocidadMovimiento = 1;
+	this.velocidadMovimiento = 3;
 
 	var centroX = dimensiones.ancho / 2 - this.ancho / 2;
 	var centroY = dimensiones.alto / 2 - this.alto / 2;
@@ -22,4 +22,19 @@ JugadorMapamundi.prototype.aplicarEstilos = function() {
 	document.getElementById(idHTML).style.width = this.ancho + "px";
 	document.getElementById(idHTML).style.height = this.alto + "px";
 	document.getElementById(idHTML).style.zIndex = "10";
+}
+
+JugadorMapamundi.prototype.actualizar = function(registroTemporal) {
+	if(teclado.teclaPulsada(controlesTeclado.arriba)) {
+		this.posicionEnMapaEnPixeles.y += this.velocidadMovimiento;
+	}
+	if(teclado.teclaPulsada(controlesTeclado.abajo)) {
+		this.posicionEnMapaEnPixeles.y -= this.velocidadMovimiento;
+	}
+	if(teclado.teclaPulsada(controlesTeclado.izquierda)) {
+		this.posicionEnMapaEnPixeles.x += this.velocidadMovimiento;
+	}
+	if(teclado.teclaPulsada(controlesTeclado.derecha)) {
+		this.posicionEnMapaEnPixeles.x -= this.velocidadMovimiento;
+	}
 }

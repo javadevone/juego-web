@@ -16,8 +16,8 @@ var maquinaEstados = {
 				break;
 		}
 	},
-	actualizar: function() {
-		maquinaEstados.estadoActual.actualizar();
+	actualizar: function(registroTemporal) {
+		maquinaEstados.estadoActual.actualizar(registroTemporal);
 	},
 	dibujar: function() {
 		maquinaEstados.estadoActual.dibujar();

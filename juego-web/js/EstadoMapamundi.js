@@ -11,11 +11,12 @@ function EstadoMapamundi(idEstado) {
 	});
 }
 
-EstadoMapamundi.prototype.actualizar = function() {
+EstadoMapamundi.prototype.actualizar = function(registroTemporal) {
 	if (!this.mapaListo) {
 		return;
 	}
-	this.mapa.actualizar();
+	this.jugadorMapamundi.actualizar(registroTemporal);
+	this.mapa.actualizar(registroTemporal, this.jugadorMapamundi.posicionEnMapaEnPixeles);
 }
 
 EstadoMapamundi.prototype.dibujar = function() {
