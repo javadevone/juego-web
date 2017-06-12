@@ -77,4 +77,17 @@ Mapa.prototype.dibujar = function() {
 			this.capasTiles[c].tiles[i].mover(this.posicion.x, this.posicion.y);
 		}
 	}
+
+	var r1 = new Rectangulo(this.posicion.x,
+		this.posicion.y,
+		this.anchoMedidoEnTiles * this.anchoDeLosTiles,
+		this.altoMedidoEnTiles * this.altoDeLosTiles);
+
+	var r2 = new Rectangulo(435,458.5,48,48);
+
+	if (r1.cruza(r2)) {
+		console.log("se estan tocando");
+	} else {
+		console.log("sin contacto");
+	}
 }
