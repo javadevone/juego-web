@@ -6,7 +6,7 @@ function EstadoMapamundi(idEstado) {
 	ajax.cargarArchivo("mapas/desierto48.json", function(objetoJSON) {
 		that.mapa = new Mapa(objetoJSON);
 		that.mapaListo = true;
-		that.jugadorMapamundi = new JugadorMapamundi(new Punto(0,0));
+		that.jugadorMapamundi = new JugadorMapamundi(new Punto(500,500));
 		console.log("mapa cargado por AJAX");
 	});
 }
@@ -17,6 +17,12 @@ EstadoMapamundi.prototype.actualizar = function(registroTemporal) {
 	}
 	this.jugadorMapamundi.actualizar(registroTemporal);
 	this.mapa.actualizar(registroTemporal, this.jugadorMapamundi.posicionEnMapaEnPixeles);
+
+	if (this.jugadorMapamundi.limiteArriba.cruza(this.mapa.limiteMapa)) {
+		console.log("está dentro");
+	} else {
+		console.log("está fuera");
+	}
 }
 
 EstadoMapamundi.prototype.dibujar = function() {

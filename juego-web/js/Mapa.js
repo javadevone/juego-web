@@ -14,6 +14,11 @@ function Mapa(objetoJSON) {
 	this.iniciarCapas(objetoJSON.layers);
 
 	this.iniciarRejilla();
+
+	this.limiteMapa = new Rectangulo(this.posicion.x,
+		this.posicion.y,
+		this.anchoMedidoEnTiles * this.anchoDeLosTiles,
+		this.altoMedidoEnTiles * this.altoDeLosTiles);
 }
 
 Mapa.prototype.iniciarPaletasSprites = function(datosCapas) {
@@ -69,6 +74,9 @@ Mapa.prototype.iniciarRejilla = function() {
 Mapa.prototype.actualizar = function(registroTemporal, posicionJugadorEnPixeles) {
 	this.posicion.x = posicionJugadorEnPixeles.x;
 	this.posicion.y = posicionJugadorEnPixeles.y;
+
+	this.limiteMapa.x = this.posicion.x;
+	this.limiteMapa.y = this.posicion.y;
 }
 
 Mapa.prototype.dibujar = function() {
@@ -76,18 +84,5 @@ Mapa.prototype.dibujar = function() {
 		for (i = 0; i < this.capasTiles[c].tiles.length; i++) {
 			this.capasTiles[c].tiles[i].mover(this.posicion.x, this.posicion.y);
 		}
-	}
-
-	var r1 = new Rectangulo(this.posicion.x,
-		this.posicion.y,
-		this.anchoMedidoEnTiles * this.anchoDeLosTiles,
-		this.altoMedidoEnTiles * this.altoDeLosTiles);
-
-	var r2 = new Rectangulo(435,458.5,48,48);
-
-	if (r1.cruza(r2)) {
-		console.log("se estan tocando");
-	} else {
-		console.log("sin contacto");
 	}
 }

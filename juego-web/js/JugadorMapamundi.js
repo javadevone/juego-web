@@ -4,11 +4,22 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 
 	this.velocidadMovimiento = 3;
 
-	var centroX = dimensiones.ancho / 2 - this.ancho / 2;
-	var centroY = dimensiones.alto / 2 - this.alto / 2;
+	//eliminar decimales y centrar al jugador
+	var centroX = Math.trunc(dimensiones.ancho / 2 - this.ancho / 2);
+	var centroY = Math.trunc(dimensiones.alto / 2 - this.alto / 2);
 	this.posicionCentrada = new Punto(centroX, centroY);
 
-	this.posicionEnMapaEnPixeles = posicionInicialEnPixeles;
+	this.limiteArriba = new Rectangulo(centroX, centroY, this.ancho, 1);
+	this.limiteAabajo = new Rectangulo(centroX, centroY + this.alto - 1, this.ancho, 1);
+	this.limiteIzquierda = new Rectangulo(centroX, centroY, 1, this.alto);
+	this.limiteDerecha = new Rectangulo(centroX + this.ancho - 1, centroY, 1, this.alto);
+
+	//convertir positivos en negativos y viceversa
+	posicionInicialEnPixeles.x *= -1;
+	posicionInicialEnPixeles.y *= -1;
+
+	this.posicionEnMapaEnPixeles = new Punto(this.posicionCentrada.x + posicionInicialEnPixeles.x,
+		this.posicionCentrada.y + posicionInicialEnPixeles.y);
 
 	this.aplicarEstilos();
 }
