@@ -10,7 +10,7 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 	this.posicionCentrada = new Punto(centroX, centroY);
 
 	this.limiteArriba = new Rectangulo(centroX, centroY, this.ancho, 1);
-	this.limiteAabajo = new Rectangulo(centroX, centroY + this.alto - 1, this.ancho, 1);
+	this.limiteAbajo = new Rectangulo(centroX, centroY + this.alto - 1, this.ancho, 1);
 	this.limiteIzquierda = new Rectangulo(centroX, centroY, 1, this.alto);
 	this.limiteDerecha = new Rectangulo(centroX + this.ancho - 1, centroY, 1, this.alto);
 
@@ -35,17 +35,21 @@ JugadorMapamundi.prototype.aplicarEstilos = function() {
 	document.getElementById(idHTML).style.zIndex = "10";
 }
 
-JugadorMapamundi.prototype.actualizar = function(registroTemporal) {
-	if(teclado.teclaPulsada(controlesTeclado.arriba)) {
+JugadorMapamundi.prototype.actualizar = function(registroTemporal, mapa) {
+	if(teclado.teclaPulsada(controlesTeclado.arriba) && 
+		this.limiteArriba.cruza(mapa.limiteMapa)) {
 		this.posicionEnMapaEnPixeles.y += this.velocidadMovimiento;
 	}
-	if(teclado.teclaPulsada(controlesTeclado.abajo)) {
+	if(teclado.teclaPulsada(controlesTeclado.abajo) &&
+		this.limiteAbajo.cruza(mapa.limiteMapa)) {
 		this.posicionEnMapaEnPixeles.y -= this.velocidadMovimiento;
 	}
-	if(teclado.teclaPulsada(controlesTeclado.izquierda)) {
+	if(teclado.teclaPulsada(controlesTeclado.izquierda) &&
+		this.limiteIzquierda.cruza(mapa.limiteMapa)) {
 		this.posicionEnMapaEnPixeles.x += this.velocidadMovimiento;
 	}
-	if(teclado.teclaPulsada(controlesTeclado.derecha)) {
+	if(teclado.teclaPulsada(controlesTeclado.derecha) &&
+		this.limiteDerecha.cruza(mapa.limiteMapa)) {
 		this.posicionEnMapaEnPixeles.x -= this.velocidadMovimiento;
 	}
 }
