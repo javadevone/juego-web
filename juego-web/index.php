@@ -13,6 +13,8 @@
 			</div>
 			<div id="jugador">
 			</div>	
+			<div id="colisiones">
+			</div>
 		</div>
 		<?php
 			include_once 'app/cargadorArchivosJS.inc.php';
