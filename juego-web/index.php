@@ -15,6 +15,8 @@
 			</div>	
 			<div id="colisiones">
 			</div>
+			<div id="localizaciones">
+			</div>
 		</div>
 		<?php
 			include_once 'app/cargadorArchivosJS.inc.php';

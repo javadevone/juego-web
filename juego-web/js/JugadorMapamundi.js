@@ -9,10 +9,10 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 	var centroY = Math.trunc(dimensiones.alto / 2 - this.alto / 2);
 	this.posicionCentrada = new Punto(centroX, centroY);
 
-	this.limiteArriba = new Rectangulo(centroX, centroY, this.ancho, 1);
-	this.limiteAbajo = new Rectangulo(centroX, centroY + this.alto - 1, this.ancho, 1);
-	this.limiteIzquierda = new Rectangulo(centroX, centroY, 1, this.alto);
-	this.limiteDerecha = new Rectangulo(centroX + this.ancho - 1, centroY, 1, this.alto);
+	this.limiteArriba = new Rectangulo(centroX + this.ancho / 3, centroY, this.ancho / 3, 1);
+	this.limiteAbajo = new Rectangulo(centroX + this.ancho / 3, centroY + this.alto - 1, this.ancho / 3, 1);
+	this.limiteIzquierda = new Rectangulo(centroX, centroY + this.alto / 3, 1, this.alto / 3);
+	this.limiteDerecha = new Rectangulo(centroX + this.ancho - 1, centroY + this.alto / 3, 1, this.alto / 3);
 
 	//convertir positivos en negativos y viceversa
 	posicionInicialEnPixeles.x *= -1;
