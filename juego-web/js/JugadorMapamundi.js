@@ -2,17 +2,35 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 	this.ancho = 48;
 	this.alto = 48;
 
+	this.rutaHojaSprites = "img/personajes48.png";
+	this.personaje = 5; //elegir personaje
+
+	this.origenXSprite = 0;
+	this.origenYSprite = this.alto * this.personaje;
+
 	this.velocidadMovimiento = 3;
+
+	this.velocidadX = 0;
+	this.velocidadY = 0;
+
+	this.enMovimiento = false;
+	this.framesAnimacion = 0;
 
 	//eliminar decimales y centrar al jugador
 	var centroX = Math.trunc(dimensiones.ancho / 2 - this.ancho / 2);
 	var centroY = Math.trunc(dimensiones.alto / 2 - this.alto / 2);
 	this.posicionCentrada = new Punto(centroX, centroY);
+	this.rectanguloGeneral = new Rectangulo(centroX, centroY, this.ancho, this.alto);
 
 	this.limiteArriba = new Rectangulo(centroX + this.ancho / 3, centroY, this.ancho / 3, 1);
 	this.limiteAbajo = new Rectangulo(centroX + this.ancho / 3, centroY + this.alto - 1, this.ancho / 3, 1);
 	this.limiteIzquierda = new Rectangulo(centroX, centroY + this.alto / 3, 1, this.alto / 3);
 	this.limiteDerecha = new Rectangulo(centroX + this.ancho - 1, centroY + this.alto / 3, 1, this.alto / 3);
+
+	this.colisionArriba = false;
+	this.colisionAbajo = false;
+	this.colisionIzquierda = false;
+	this.colisionDerecha = false;
 
 	//convertir positivos en negativos y viceversa
 	posicionInicialEnPixeles.x *= -1;
@@ -26,13 +44,17 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 
 JugadorMapamundi.prototype.aplicarEstilos = function() {
 	var idHTML = "jugador";
-	document.getElementById(idHTML).style.backgroundColor = "white";
+	//document.getElementById(idHTML).style.backgroundColor = "white";
 	document.getElementById(idHTML).style.position = "absolute";
 	document.getElementById(idHTML).style.left = this.posicionCentrada.x + "px";
 	document.getElementById(idHTML).style.top = this.posicionCentrada.y + "px";
 	document.getElementById(idHTML).style.width = this.ancho + "px";
 	document.getElementById(idHTML).style.height = this.alto + "px";
 	document.getElementById(idHTML).style.zIndex = "10";
+	document.getElementById(idHTML).style.background = "url('" + this.rutaHojaSprites + "')";
+	document.getElementById(idHTML).style.backgroundPosition = "-" + this.origenXSprite + "px -" + this.origenYSprite + "px";
+	document.getElementById(idHTML).style.backgroundClip = "border-box";
+	document.getElementById(idHTML).style.outline = "1px solid transparent";
 }
 
 JugadorMapamundi.prototype.comprobarColisiones = function(mapa) {

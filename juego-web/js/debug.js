@@ -1,0 +1,3 @@
+var debug = {
+    debugging: false
+};
