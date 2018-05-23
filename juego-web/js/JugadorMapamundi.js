@@ -13,7 +13,6 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 	this.velocidadX = 0;
 	this.velocidadY = 0;
 
-	this.enMovimiento = false;
 	this.framesAnimacion = 0;
 
 	//eliminar decimales y centrar al jugador
@@ -143,11 +142,36 @@ JugadorMapamundi.prototype.dirigir = function() {
 	}
 
 	document.getElementById("jugador").style.backgroundPosition = "-" + this.origenXSprite + "px -" + this.origenYSprite + "px";
+}
 
+JugadorMapamundi.prototype.animar = function() {
+	if(this.velocidadX == 0 && this.velocidadY == 0) {
+		this.framesAnimacion = 0;
+		return;
+	}
+
+	this.framesAnimacion++;
+	
+	let paso1 = 10;
+	let paso2 = 20;
+	let origenXSpriteTemporal = this.origenXSprite;
+
+	if(this.framesAnimacion > 0 && this.framesAnimacion < paso1) {
+		origenXSpriteTemporal += this.ancho;
+	}
+	if(this.framesAnimacion >= paso1 && this.framesAnimacion < paso2) {
+		origenXSpriteTemporal += this.ancho * 2;
+	}
+	if(this.framesAnimacion == paso2) {
+		this.framesAnimacion = 0;
+	}
+
+	document.getElementById("jugador").style.backgroundPosition = "-" + origenXSpriteTemporal + "px -" + this.origenYSprite + "px";
 }
 
 JugadorMapamundi.prototype.actualizar = function(registroTemporal, mapa) {
 	this.comprobarColisiones(mapa);
 	this.mover();
 	this.dirigir();
+	this.animar();
 }
