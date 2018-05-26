@@ -29,7 +29,7 @@
                  "y":2
                 }, 
                 {
-                 "height":41.3333333333333,
+                 "height":41.3333,
                  "id":2,
                  "name":"",
                  "rotation":0,
@@ -68,7 +68,7 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":172.666666666667,
+                 "width":172.667,
                  "x":140,
                  "y":400
                 }, 
@@ -90,7 +90,7 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":57.3333333333334,
+                 "width":57.3333,
                  "x":255,
                  "y":626
                 }, 
@@ -101,20 +101,20 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":87.6666666666667,
-                 "x":392.333333333333,
+                 "width":87.6667,
+                 "x":392.333,
                  "y":586
                 }, 
                 {
-                 "height":129.333333333333,
+                 "height":129.333,
                  "id":11,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":125.333333333333,
+                 "width":125.333,
                  "x":630,
-                 "y":584.666666666667
+                 "y":584.667
                 }, 
                 {
                  "height":127,
@@ -167,8 +167,8 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":131.333333333333,
-                 "x":828.666666666667,
+                 "width":131.333,
+                 "x":828.667,
                  "y":672
                 }, 
                 {
@@ -178,8 +178,8 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":147.333333333333,
-                 "x":812.666666666667,
+                 "width":147.333,
+                 "x":812.667,
                  "y":424
                 }, 
                 {
@@ -284,7 +284,7 @@
                 {
                  "height":90,
                  "id":26,
-                 "name":"",
+                 "name":"Rockport",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -295,7 +295,7 @@
                 {
                  "height":46,
                  "id":27,
-                 "name":"",
+                 "name":"Ocean Town",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -306,7 +306,7 @@
                 {
                  "height":78,
                  "id":28,
-                 "name":"",
+                 "name":"La ciudad prohibida",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -317,7 +317,7 @@
                 {
                  "height":86,
                  "id":29,
-                 "name":"",
+                 "name":"La tumba perdida",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -328,7 +328,7 @@
                 {
                  "height":120,
                  "id":30,
-                 "name":"",
+                 "name":"La colina de las mil cuevas",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -339,7 +339,7 @@
                 {
                  "height":48,
                  "id":31,
-                 "name":"",
+                 "name":"La casa del anciano",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -350,7 +350,7 @@
                 {
                  "height":90,
                  "id":32,
-                 "name":"",
+                 "name":"Desierto central",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -361,7 +361,7 @@
                 {
                  "height":104,
                  "id":33,
-                 "name":"",
+                 "name":"North Farm",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -372,7 +372,7 @@
                 {
                  "height":60,
                  "id":34,
-                 "name":"",
+                 "name":"Antiguo templo",
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -389,7 +389,7 @@
  "nextobjectid":37,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.1.4",
+ "tiledversion":"1.1.5",
  "tileheight":48,
  "tilesets":[
         {

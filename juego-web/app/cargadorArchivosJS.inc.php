@@ -5,7 +5,9 @@ $fecha = new DateTime();
 $fuentesJavascript = array(
 	"js/debug.js",
 	"js/dimensiones.js",
+	"js/popup.js",
 	"js/Rectangulo.js",
+	"js/Localizacion.js",
 	"js/JugadorMapamundi.js",
 	"js/Sprite.js",
 	"js/Tile.js",

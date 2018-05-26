@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="48" tileheight="48" infinite="0" nextobjectid="37">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="48" tileheight="48" infinite="0" nextobjectid="37">
  <tileset firstgid="1" name="mapa48" tilewidth="48" tileheight="48" tilecount="153" columns="17">
   <image source="../img/mapa48.png" width="816" height="432"/>
  </tileset>
@@ -53,14 +53,14 @@
   <object id="35" x="630.667" y="394" width="27.3333" height="51.3333"/>
  </objectgroup>
  <objectgroup color="#00ff00" name="localizaciones">
-  <object id="26" x="92" y="196" width="152" height="90"/>
-  <object id="27" x="184" y="632" width="62" height="46"/>
-  <object id="28" x="488" y="872" width="120" height="78"/>
-  <object id="29" x="880" y="868" width="78" height="86"/>
-  <object id="30" x="874" y="534" width="78" height="120"/>
-  <object id="31" x="632" y="336" width="48" height="48"/>
-  <object id="32" x="496" y="576" width="114" height="90"/>
-  <object id="33" x="866" y="292" width="88" height="104"/>
-  <object id="34" x="918" y="148" width="36" height="60"/>
+  <object id="26" name="Rockport" x="92" y="196" width="152" height="90"/>
+  <object id="27" name="Ocean Town" x="184" y="632" width="62" height="46"/>
+  <object id="28" name="La ciudad prohibida" x="488" y="872" width="120" height="78"/>
+  <object id="29" name="La tumba perdida" x="880" y="868" width="78" height="86"/>
+  <object id="30" name="La colina de las mil cuevas" x="874" y="534" width="78" height="120"/>
+  <object id="31" name="La casa del anciano" x="632" y="336" width="48" height="48"/>
+  <object id="32" name="Desierto central" x="496" y="576" width="114" height="90"/>
+  <object id="33" name="North Farm" x="866" y="292" width="88" height="104"/>
+  <object id="34" name="Antiguo templo" x="918" y="148" width="36" height="60"/>
  </objectgroup>
 </map>

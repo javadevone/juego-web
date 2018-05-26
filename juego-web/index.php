@@ -17,6 +17,8 @@
 			</div>
 			<div id="localizaciones">
 			</div>
+			<div id="popup">
+			</div>
 		</div>
 		<?php
 			include_once 'app/cargadorArchivosJS.inc.php';
