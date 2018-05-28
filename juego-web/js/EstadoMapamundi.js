@@ -18,6 +18,26 @@ EstadoMapamundi.prototype.actualizar = function(registroTemporal) {
 	
 	this.jugadorMapamundi.actualizar(registroTemporal, this.mapa);
 	this.mapa.actualizar(registroTemporal, this.jugadorMapamundi.posicionEnMapaEnPixeles);
+
+	let localizacionAtravesada = false;
+
+	for(var i = 0; i < this.mapa.rectangulosLocalizaciones.length; i++) {
+		let rActual = this.mapa.rectangulosLocalizaciones[i].rectangulo;
+		let nombre = this.mapa.rectangulosLocalizaciones[i].nombre;
+		let rTemporal = new Rectangulo(rActual.x + this.mapa.posicion.x,
+		rActual.y + this.mapa.posicion.y, rActual.ancho, rActual.alto);
+		if(rTemporal.cruza(this.jugadorMapamundi.rectanguloGeneral)) {
+			localizacionAtravesada = true;
+			if(!popup.visible) {
+				popup.mostrar(dimensiones.ancho / 2 - 150, dimensiones.alto / 2 - 100,
+				300, nombre);
+			}
+		}
+
+		if(!localizacionAtravesada && popup.visible) {
+			popup.ocultar();
+		}
+	}
 }
 
 EstadoMapamundi.prototype.dibujar = function() {
