@@ -20,7 +20,7 @@ EstadoMapamundi.prototype.actualizar = function(registroTemporal) {
 	this.mapa.actualizar(registroTemporal, this.jugadorMapamundi.posicionEnMapaEnPixeles);
 
 	let localizacionAtravesada = false;
-
+	
 	for(var i = 0; i < this.mapa.rectangulosLocalizaciones.length; i++) {
 		let rActual = this.mapa.rectangulosLocalizaciones[i].rectangulo;
 		let nombre = this.mapa.rectangulosLocalizaciones[i].nombre;
@@ -31,6 +31,9 @@ EstadoMapamundi.prototype.actualizar = function(registroTemporal) {
 			if(!popup.visible) {
 				popup.mostrar(dimensiones.ancho / 2 - 150, dimensiones.alto / 2 - 100,
 				300, nombre);
+			}
+			if(teclado.teclaPulsada(controlesTeclado.entrarLocalizacion)) {
+				console.log("ENTRANDO");
 			}
 		}
 

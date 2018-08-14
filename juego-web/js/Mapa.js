@@ -13,13 +13,9 @@ function Mapa(objetoJSON) {
 	this.anchoDeLosTiles = parseInt(objetoJSON.tilewidth);
 	this.altoDeLosTiles = parseInt(objetoJSON.tileheight);
 
-	//this.paletasSprites = [];
-	//this.iniciarPaletasSprites(objetoJSON.tilesets);
-
 	this.rectangulosColisiones = [];
 	this.rectangulosLocalizaciones = [];
 
-	//this.capasTiles = [];
 	this.iniciarCapas(objetoJSON.layers);
 
 	this.iniciarElementosMapa();
@@ -30,17 +26,10 @@ function Mapa(objetoJSON) {
 		this.altoMedidoEnTiles * this.altoDeLosTiles, "colision");
 }
 
-/*
-Mapa.prototype.iniciarPaletasSprites = function(datosCapas) {
-	for (i = 0; i < datosCapas.length; i++) {
-		this.paletasSprites.push(new PaletaSprites(datosCapas[i]));
-	}
-}
-*/
-
 Mapa.prototype.iniciarCapas = function(datosCapas) {
 	for (i = 0; i < datosCapas.length; i++) {
 		if (datosCapas[i].name == "colisiones") {
+			console.log("capa colisiones");
 			for (c = 0; c < datosCapas[i].objects.length; c++) {
 				this.rectangulosColisiones.push(new Rectangulo(
 					datosCapas[i].objects[c].x, datosCapas[i].objects[c].y,
@@ -55,9 +44,7 @@ Mapa.prototype.iniciarCapas = function(datosCapas) {
 					datosCapas[i].objects[l].width, datosCapas[i].objects[l].height, "localizacion"
 				), datosCapas[i].objects[l].name));
 			}
-			console.log("Capa de localizaciones");
 		}
-		break;	
 	}
 }
 
@@ -73,19 +60,6 @@ Mapa.prototype.iniciarElementosMapa = function() {
 	document.getElementById(idHTML).style.backgroundClip = "border-box";
 	document.getElementById(idHTML).style.outline = "1px solid transparent";
 
-	/*
-	for (ct = 0; ct < this.capasTiles.length; ct++) {
-		for (t = 0; t < this.capasTiles[ct].tiles.length; t++) {
-			if (this.capasTiles[ct].tiles[t] == null) {
-				continue;
-			}
-			var tileActual = this.capasTiles[ct].tiles[t];
-			html += tileActual.html;
-		}
-	}
-
-	document.getElementById("mapa").innerHTML = html;
-	*/
 	var htmlColisiones = "";
 	for(c = 0; c < this.rectangulosColisiones.length; c++) {
 		htmlColisiones += this.rectangulosColisiones[c].html;
@@ -99,18 +73,6 @@ Mapa.prototype.iniciarElementosMapa = function() {
 	}
 	
 	document.getElementById("localizaciones").innerHTML = htmlLocalizaciones;
-
-	/*
-	for (ct = 0; ct < this.capasTiles.length; ct++) {
-		for (t = 0; t < this.capasTiles[ct].tiles.length; t++) {
-			if (this.capasTiles[ct].tiles[t] == null) {
-				continue;
-			}
-			var tileActual = this.capasTiles[ct].tiles[t];
-			tileActual.aplicarEstilos();
-		}
-	}
-	*/
 	
 	if(debug.debugging) {
 		for (c = 0; c < this.rectangulosColisiones.length; c++) {
@@ -136,14 +98,6 @@ Mapa.prototype.actualizar = function(registroTemporal, posicionJugadorEnPixeles)
 }
 
 Mapa.prototype.dibujar = function() {
-	/*
-	for (c = 0; c < this.capasTiles.length; c++) {
-		for (i = 0; i < this.capasTiles[c].tiles.length; i++) {
-			this.capasTiles[c].tiles[i].mover(this.posicion.x, this.posicion.y);
-		}
-	}
-	*/
-
 	document.getElementById("mapa").style.transform = 'translate3d(' + this.posicion.x + 'px, ' + this.posicion.y + 'px, 0' + ')';
 	
 	if(debug.debugging) {

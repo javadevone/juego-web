@@ -76,7 +76,6 @@ JugadorMapamundi.prototype.comprobarColisiones = function(mapa) {
 	}
 	
 	for (var i = 0; i < mapa.rectangulosColisiones.length; i++) {
-		
 		var traduccionTemporalColision = new Rectangulo(
 			mapa.rectangulosColisiones[i].x + mapa.posicion.x,
 			mapa.rectangulosColisiones[i].y + mapa.posicion.y,
