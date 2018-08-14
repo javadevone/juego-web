@@ -1,7 +1,7 @@
 var maquinaEstados = {
 	estadoActual: null,
 	iniciar: function() {
-		maquinaEstados.cambiarEstado(listadoEstados.MAPAMUNDI);
+		maquinaEstados.cambiarEstado(listadoEstados.PANTALLA_TITULO);
 	},
 	cambiarEstado: function(nuevoEstado) {
 		switch(nuevoEstado) {
@@ -13,6 +13,10 @@ var maquinaEstados = {
 				maquinaEstados.estadoActual = new EstadoMapamundi(listadoEstados.MAPAMUNDI);
 				break;
 			case listadoEstados.NIVEL:
+				break;
+			case listadoEstados.PANTALLA_TITULO:
+				console.log("iniciando pantalla");
+				maquinaEstados.estadoActual = new EstadoPantallaTitulo();
 				break;
 		}
 	},
