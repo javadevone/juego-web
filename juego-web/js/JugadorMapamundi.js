@@ -1,4 +1,6 @@
-function JugadorMapamundi(posicionInicialEnPixeles) {
+function JugadorMapamundi(posicionInicialEnPixeles, estadoJuego) {
+	this.estadoJuego = estadoJuego;
+
 	this.ancho = 48;
 	this.alto = 48;
 
@@ -13,6 +15,18 @@ function JugadorMapamundi(posicionInicialEnPixeles) {
 	this.velocidadX = 0;
 	this.velocidadY = 0;
 
+	this.subiendo = false;
+	this.saltoBloqueado = false;
+	this.saltoYInicial = 0;
+	this.framesAereosMaximos = 12;
+	this.framesAereos = this.framesAereosMaximos;
+
+	this.velocidadTerminal = 10;
+	this.velocidadCaida = 0;
+
+	//modo escalera
+
+	this.enMovimiento = false;
 	this.framesAnimacion = 0;
 
 	//eliminar decimales y centrar al jugador
@@ -98,7 +112,7 @@ JugadorMapamundi.prototype.comprobarColisiones = function(mapa) {
 	}
 }
 
-JugadorMapamundi.prototype.mover = function() {
+JugadorMapamundi.prototype.moverEnMapamundi = function() {
 	this.velocidadX = 0;
 	this.velocidadY = 0;
 
@@ -113,6 +127,51 @@ JugadorMapamundi.prototype.mover = function() {
 	}
 	if(!this.colisionDerecha && teclado.teclaPulsada(controlesTeclado.derecha)) {
 		this.velocidadX -= this.velocidadMovimiento;
+	}
+
+	this.posicionEnMapaEnPixeles.x += this.velocidadX;
+	this.posicionEnMapaEnPixeles.y += this.velocidadY;
+}
+
+JugadorMapamundi.prototype.moverEnNivel = function() {
+	this.velocidadX = 0;
+	this.velocidadY = 0;
+
+	if(this.saltoBloqueado && this.colisionAbajo && !teclado.teclaPulsada(controlesTeclado.saltar)) {
+		this.saltoBloqueado = false;
+		this.velocidadCaida = 0;
+		console.log();
+	}
+
+	if(!this.saltoBloqueado && teclado.teclaPulsada(controlesTeclado.saltar)) {
+		this.subiendo = true;
+		this.saltoBloqueado = true;
+	}
+
+	if (!this.colisionArriba && this.subiendo) {
+		this.framesAereos--;
+		this.velocidadY = 1 * this.velocidadMovimiento + this.framesAereos;
+
+		if(this.framesAereos <= 0) {
+			this.subiendo = false;
+			this.framesAereos = this.framesAereosMaximos;
+		}
+	}
+
+	if (!this.colisionAbajo && !this.subiendo) {
+		this.velocidadY = Math.round(-this.velocidadCaida);
+		console.log(this.velocidadY);
+		if(this.velocidadCaida < this.velocidadTerminal) {
+			this.velocidadCaida += 0.3;
+		}
+	}
+
+	if(!this.colisionIzquierda && teclado.teclaPulsada(controlesTeclado.izquierda)) {
+		this.velocidadX = 1 * this.velocidadMovimiento;
+	}
+
+	if(!this.colisionDerecha && teclado.teclaPulsada(controlesTeclado.derecha)) {
+		this.velocidadX = -1 * this.velocidadMovimiento;
 	}
 
 	this.posicionEnMapaEnPixeles.x += this.velocidadX;
@@ -169,8 +228,17 @@ JugadorMapamundi.prototype.animar = function() {
 }
 
 JugadorMapamundi.prototype.actualizar = function(registroTemporal, mapa) {
-	this.comprobarColisiones(mapa);
-	this.mover();
-	this.dirigir();
-	this.animar();
+	if(this.estadoJuego == listadoEstados.MAPAMUNDI) {
+		this.comprobarColisiones(mapa);
+		this.moverEnMapamundi();
+		this.dirigir();
+		this.animar();
+	}
+
+	if(this.estadoJuego == listadoEstados.NIVEL) {
+		this.comprobarColisiones(mapa);
+		this.moverEnNivel();
+		this.dirigir();
+		this.animar();
+	}
 }

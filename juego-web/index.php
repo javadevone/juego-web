@@ -14,12 +14,16 @@
 
 			<div id="mapa">
 			</div>
+
 			<div id="jugador">
-			</div>	
+			</div>
+
 			<div id="colisiones">
 			</div>
+
 			<div id="localizaciones">
 			</div>
+			
 			<div id="popup">
 			</div>
 		</div>

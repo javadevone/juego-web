@@ -1,4 +1,5 @@
-function Mapa(objetoJSON) {
+function Mapa(objetoJSON, estadoJuego) { //añadir id estado
+	this.estadoJuego = estadoJuego;
 	this.posicion = new Punto(0,0);
 	this.posicionActualizada = new Punto(0,0);
 
@@ -6,7 +7,13 @@ function Mapa(objetoJSON) {
 	let rutaImagenFondo = rutaCompletaImagenFondo.split("/");
 	let nombreImagenFondo = rutaImagenFondo[rutaImagenFondo.length - 1];
 	let nombreMapa = nombreImagenFondo.split(".");
-	this.rutaImagenMapa = "img/" + nombreMapa[0] + ".mapa.png";
+
+	if (this.estadoJuego == listadoEstados.MAPAMUNDI) {
+		this.rutaImagenMapa = "img/" + nombreMapa[0] + ".mapa.png";
+	}
+	if (this.estadoJuego == listadoEstados.NIVEL) {
+		this.rutaImagenMapa = "img/" + nombreMapa[0] + ".nivel.png";
+	}
 
 	this.anchoMedidoEnTiles = parseInt(objetoJSON.width);
 	this.altoMedidoEnTiles = parseInt(objetoJSON.height);
@@ -15,6 +22,7 @@ function Mapa(objetoJSON) {
 
 	this.rectangulosColisiones = [];
 	this.rectangulosLocalizaciones = [];
+	//rectangulos escaleras
 
 	this.iniciarCapas(objetoJSON.layers);
 
@@ -45,6 +53,7 @@ Mapa.prototype.iniciarCapas = function(datosCapas) {
 				), datosCapas[i].objects[l].name));
 			}
 		}
+		//bloque if capas de escaleras
 	}
 }
 
@@ -64,16 +73,16 @@ Mapa.prototype.iniciarElementosMapa = function() {
 	for(c = 0; c < this.rectangulosColisiones.length; c++) {
 		htmlColisiones += this.rectangulosColisiones[c].html;
 	}
-	
 	document.getElementById("colisiones").innerHTML = htmlColisiones;
 	
 	var htmlLocalizaciones = "";
 	for(l = 0; l < this.rectangulosLocalizaciones.length; l++) {
 		htmlLocalizaciones += this.rectangulosLocalizaciones[l].rectangulo.html;
 	}
-	
 	document.getElementById("localizaciones").innerHTML = htmlLocalizaciones;
 	
+	//bloque de escaleras
+
 	if(debug.debugging) {
 		for (c = 0; c < this.rectangulosColisiones.length; c++) {
 			this.rectangulosColisiones[c].aplicarEstiloTemporal("#ff0000");
@@ -82,6 +91,8 @@ Mapa.prototype.iniciarElementosMapa = function() {
 		for (l = 0; l < this.rectangulosLocalizaciones.length; l++) {
 			this.rectangulosLocalizaciones[l].rectangulo.aplicarEstiloTemporal("#00ff00");
 		}
+
+		//bloque escaleras debugging
 	}
 	
 	
@@ -108,5 +119,7 @@ Mapa.prototype.dibujar = function() {
 		for (rl = 0; rl < this.rectangulosLocalizaciones.length; rl++) {
 			this.rectangulosLocalizaciones[rl].rectangulo.mover(this.posicion.x, this.posicion.y);
 		}
+
+		//bloque dibujado escaleras
 	}
 }

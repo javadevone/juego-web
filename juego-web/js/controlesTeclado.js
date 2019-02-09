@@ -3,5 +3,6 @@ var controlesTeclado = {
 	abajo: 's',
 	izquierda: 'a',
 	derecha: 'd',
-	entrarLocalizacion: 'r'
+	entrarLocalizacion: 'r',
+	saltar: ' '
 };
