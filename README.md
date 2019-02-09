@@ -13,4 +13,5 @@ Para más dudas o consultas:
 - Patreon: https://www.patreon.com/javadevone
 - Facebook: https://www.facebook.com/java.devone/
 - Twitter: https://twitter.com/javadevone
-- Google+: https://plus.google.com/+JavaDevOne
+- Instagram: https://www.instagram.com/javadev1/
+- Twitch: https://www.twitch.tv/javadevone
